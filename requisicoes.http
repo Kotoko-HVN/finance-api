@@ -1,0 +1,67 @@
+### ---------- CATEGORIA ----------
+POST http://localhost:8080/categoria
+Content-Type: application/json
+
+{ "descricao": "Alimentação" }
+
+###
+GET http://localhost:8080/categoria
+
+###
+PUT http://localhost:8080/categoria/1
+Content-Type: application/json
+
+{ "descricao": "Alimentação e Mercado" }
+
+### ---------- CONTA ----------
+POST http://localhost:8080/conta
+Content-Type: application/json
+
+{ "descricao": "Carteira" }
+
+###
+GET http://localhost:8080/conta
+
+###
+PUT http://localhost:8080/conta/1
+Content-Type: application/json
+
+{ "descricao": "Conta Corrente" }
+
+### ---------- TRANSACAO ----------
+POST http://localhost:8080/transacao
+Content-Type: application/json
+
+{
+  "descricao": "Almoço",
+  "valor": 35.90,
+  "tipo": "D",
+  "dataTransacao": "2026-10-05",
+  "conta": { "id": 1 },
+  "categoria": { "id": 1 }
+}
+
+###
+GET http://localhost:8080/transacao
+
+###
+PUT http://localhost:8080/transacao/1
+Content-Type: application/json
+
+{
+  "descricao": "Almoço no restaurante",
+  "valor": 42.50,
+  "tipo": "D",
+  "dataTransacao": "2026-10-05",
+  "conta": { "id": 1 },
+  "categoria": { "id": 1 }
+}
+
+### ---------- EXCLUSÕES (transação primeiro, por causa das chaves estrangeiras) ----------
+DELETE http://localhost:8080/transacao/1
+
+###
+DELETE http://localhost:8080/conta/1
+
+###
+DELETE http://localhost:8080/categoria/1
